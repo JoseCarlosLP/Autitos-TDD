@@ -10,4 +10,7 @@ describe("Comandos de movimiento del Auto", () => {
     it("Se ingresa el comando A para avanzar", () => {
         expect(ejecutar("A")).toEqual("0,1N");
     });
+    it("Se ingresa el comando AA para avanzar 2 veces", () => {
+        expect(ejecutar("AA")).toEqual("0,2N");
+    });
  });
