@@ -1,7 +1,16 @@
-const posicionInicial="0,0N";
+const posicionInicialX=0;
+const posicionInicialY=0;
 
-export function ejecutar(comando){
-    if(comando==="") return posicionInicial;
-    if(comando==="A") return "0,1N";
-    if(comando==="AA") return "0,2N";
+export function ejecutar(cadenaComando){
+    let posicionActualX=posicionInicialX;
+    let posicionActualY=posicionInicialY;
+    posicionActualY=moverAuto(cadenaComando,posicionActualY);
+    return posicionActualX+","+posicionActualY+"N";
+}
+
+function moverAuto(cadenaComando,posicionActualY){
+    for(let comando=0;comando<cadenaComando.length;comando++){
+        posicionActualY++;
+    }
+    return posicionActualY;
 }
