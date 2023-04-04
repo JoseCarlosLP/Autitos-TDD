@@ -13,4 +13,4 @@ function moverAuto(cadenaComando,posicionActualY){
         posicionActualY++;
     }
     return posicionActualY;
-}
+}   

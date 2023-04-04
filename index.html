@@ -1,15 +1,19 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <h1>Sumador</h1>
-    <form id="sumar-form">
-      <label for="primer-numero">Primer número:</label>
-      <input type="number" id="primer-numero" />
-      <label for="segundo-numero">Segundo número:</label>
-      <input type="number" id="segundo-numero" />
-      <input type="submit" value="Sumar" id="sumar-button" />
-    </form>
-    <div id="resultado-div"></div>
-
-    <script type="module" src="./src/presenter.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controlador de Auto</title>
+</head>
+<body>
+  <form id="form_ejecutar">
+    <label for="lbl_comandos">Comandos :</label>
+    <br>
+    <textarea id="comandos" rows="4" cols="30"></textarea>
+    <input type="submit" id="ejecutar_btn" value="EJECUTAR">
+  </form>
+  <div id="posiciones"></div>
+  <script type="module" src="./src/presenter.js"></script>
+</body>
 </html>
