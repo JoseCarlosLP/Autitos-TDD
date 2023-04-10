@@ -25,7 +25,7 @@ class Auto
         }
     }
 
-    verificarLimites()
+    controlarPosicionDentroDeLaMatriz()
     {
         if(this.posicionActualX==limiteX) this.posicionActualX--;
         if(this.posicionActualX==-1) this.posicionActualX++;        
@@ -39,7 +39,7 @@ class Auto
         else if(this.orientacionActual=="E") this.posicionActualX++;
         else if(this.orientacionActual=="S") this.posicionActualY--;
         else this.posicionActualX--;
-        this.verificarLimites();
+        this.controlarPosicionDentroDeLaMatriz();
     }
 
     rotarDerecha()

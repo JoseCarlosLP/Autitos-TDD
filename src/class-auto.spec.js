@@ -2,7 +2,6 @@ import Auto from "./class-auto.js"
 
 describe("Comandos de movimiento del Auto", () => {
     it("", () => {
-      const auto = new Auto();
       expect(true).toEqual(true);
     });
     it("No se ingreso un comando", () => {
