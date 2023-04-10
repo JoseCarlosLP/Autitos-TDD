@@ -40,6 +40,10 @@ class Auto
         {
             this.orientacionActual="O";
         }
+        else if(this.orientacionActual=="O")
+        {
+            this.orientacionActual="N";
+        }
     }
 }
 

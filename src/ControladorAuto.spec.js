@@ -35,4 +35,10 @@ describe("Comandos de movimiento del Auto", () => {
         const auto = new Auto();
         expect(auto.ejecutar("DDD")).toEqual("0,0O");
     });
+    it("Se ingresa el comando D cuatro o más veces para girar a la derecha", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("DDDD")).toEqual("0,0N");
+        const auto2 = new Auto();
+        expect(auto2.ejecutar("DDDDDD")).toEqual("0,0S");
+    });
  });
