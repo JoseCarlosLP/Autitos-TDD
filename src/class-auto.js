@@ -38,8 +38,18 @@ class Auto
         {
             this.posicionActualX++;
         }
+        else if(this.orientacionActual=="S")
+        {
+            if(this.posicionActualY!=0)
+                this.posicionActualY--;
+        }
+        else if(this.orientacionActual=="O")
+        {
+            if(this.posicionActualX!=0)
+                this.posicionActualX--;
+        }
     }
-    
+
     rotarDerecha()
     {
         if(this.orientacionActual=="N")
