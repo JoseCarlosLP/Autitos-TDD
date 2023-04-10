@@ -21,6 +21,7 @@ class Auto
     moverAuto(cadenaComando){
         for(let comando=0;comando<cadenaComando.length;comando++){
             if(cadenaComando[comando]=="D") this.rotarDerecha();
+            else if(cadenaComando[comando]=="I") this.rotarIzquierda();
             else this.avanzar();
         }
     }
@@ -48,6 +49,11 @@ class Auto
         else if(this.orientacionActual=="E") this.orientacionActual="S";
         else if(this.orientacionActual=="S") this.orientacionActual="O";
         else this.orientacionActual="N";
+    }
+
+    rotarIzquierda()
+    {
+        this.orientacionActual="O";
     }
 }
 export default Auto;
