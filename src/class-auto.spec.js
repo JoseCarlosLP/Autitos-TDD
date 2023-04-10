@@ -84,4 +84,8 @@ describe("Comandos de movimiento del Auto", () => {
         const auto = new Auto();
         expect(auto.ejecutar("IIIAIAAI")).toEqual("1,2O");
     });
+    it("Se ingresan comandos invalidos junto a comandos existentes para verificar que no sean procesados", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("GOJRGAAGND")).toEqual("0,2E");
+    });
  });

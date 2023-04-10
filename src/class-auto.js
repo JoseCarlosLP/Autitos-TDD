@@ -22,7 +22,7 @@ class Auto
         for(let comando=0;comando<cadenaComando.length;comando++){
             if(cadenaComando[comando]=="D") this.rotarDerecha();
             else if(cadenaComando[comando]=="I") this.rotarIzquierda();
-            else this.avanzar();
+            else if(cadenaComando[comando]=="A") this.avanzar();
         }
     }
 
