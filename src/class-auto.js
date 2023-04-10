@@ -21,11 +21,25 @@ class Auto
             {
                 this.rotarDerecha();
             }
-            else
-                this.posicionActualY++;
+            else if(cadenaComando[comando]=="A")
+            {
+                this.avanzar();
+            }
         }
     }
 
+    avanzar()
+    {
+        if(this.orientacionActual=="N")
+        {
+            this.posicionActualY++;
+        }
+        else if(this.orientacionActual=="E")
+        {
+            this.posicionActualX++;
+        }
+    }
+    
     rotarDerecha()
     {
         if(this.orientacionActual=="N")

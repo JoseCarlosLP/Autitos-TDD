@@ -41,4 +41,8 @@ describe("Comandos de movimiento del Auto", () => {
         const auto2 = new Auto();
         expect(auto2.ejecutar("DDDDDD")).toEqual("0,0S");
     });
+    it("Se ingresa el comando DA para girar a la derecha y avanzar", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("DA")).toEqual("1,0E");
+    });
  });
