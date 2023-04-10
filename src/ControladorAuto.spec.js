@@ -18,4 +18,7 @@ describe("Comandos de movimiento del Auto", () => {
         expect(auto.ejecutar("AAAA")).toEqual("0,4N");
         expect(auto.ejecutar("AAAAAAA")).toEqual("0,7N");
     });
+    it("Se ingresa el comando D para girar a la derecha", () => {
+        expect(auto.ejecutar("D")).toEqual("0,0E");
+    });
  });

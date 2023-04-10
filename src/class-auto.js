@@ -9,7 +9,10 @@ class Auto
     ejecutar(cadenaComando){
         let posicionActualX=this.posicionInicialX;
         let posicionActualY=this.posicionInicialY;
-        posicionActualY=this.moverAuto(cadenaComando,posicionActualY);
+        if(cadenaComando=="D")
+        return posicionActualX+","+posicionActualY+"E"; 
+        else
+            posicionActualY=this.moverAuto(cadenaComando,posicionActualY);
         return posicionActualX+","+posicionActualY+"N";
     }
 
