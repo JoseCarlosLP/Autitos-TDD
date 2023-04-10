@@ -55,7 +55,8 @@ class Auto
     {
         if(this.orientacionActual=="N")  this.orientacionActual="O";
         else if(this.orientacionActual=="O") this.orientacionActual="S";
-        else this.orientacionActual="E";
+        else if(this.orientacionActual=="S") this.orientacionActual="E";
+        else this.orientacionActual="N";
     }
 }
 export default Auto;
