@@ -32,7 +32,8 @@ class Auto
     {
         if(this.orientacionActual=="N")
         {
-            this.posicionActualY++;
+            if(this.posicionActualY<9)
+                this.posicionActualY++;
         }
         else if(this.orientacionActual=="E")
         {

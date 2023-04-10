@@ -22,6 +22,8 @@ describe("Comandos de movimiento del Auto", () => {
         expect(auto.ejecutar("AAAA")).toEqual("0,4N");
         const auto2 = new Auto();
         expect(auto2.ejecutar("AAAAAAA")).toEqual("0,7N");
+        const auto3 = new Auto();
+        expect(auto3.ejecutar("AAAAAAAAAA")).toEqual("0,9N");
     });
     it("Se ingresa el comando D para girar a la derecha", () => {
         const auto = new Auto();
