@@ -1,5 +1,4 @@
-const limiteY = 10;
-const limiteX = 10;
+import identificadorDeLimites from "./ControladorMatriz";
 
 class Auto
 {
@@ -13,7 +12,19 @@ class Auto
         this.orientacionActual = this.orientacionInicial;
     }
 
+    establecerLimites(limites,cadenaComando)
+    {
+        this.limiteX = limites[0];
+        this.limiteY = limites[1];
+        let comandos = cadenaComando.split("/");
+        return comandos[comandos.length-1];
+    }
+
     ejecutar(cadenaComando){
+
+        let limites = identificadorDeLimites(cadenaComando);
+        cadenaComando = this.establecerLimites(limites,cadenaComando);
+
         this.moverAuto(cadenaComando);
         return this.posicionActualX+","+this.posicionActualY+this.orientacionActual;
     }
@@ -28,9 +39,9 @@ class Auto
 
     controlarPosicionDentroDeLaMatriz()
     {
-        if(this.posicionActualX==limiteX) this.posicionActualX--;
+        if(this.posicionActualX==this.limiteX) this.posicionActualX--;
         if(this.posicionActualX==-1) this.posicionActualX++;        
-        if(this.posicionActualY==limiteY) this.posicionActualY--;
+        if(this.posicionActualY==this.limiteY) this.posicionActualY--;
         if(this.posicionActualY==-1) this.posicionActualY++;
     }
 

@@ -88,4 +88,8 @@ describe("Comandos de movimiento del Auto", () => {
         const auto = new Auto();
         expect(auto.ejecutar("GOJRGAAGND")).toEqual("0,2E");
     });
+    it("Se ingresa el limite del grid y la cadena de comandos", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("2,3/AADAA")).toEqual("1,2E");
+    });
  });
