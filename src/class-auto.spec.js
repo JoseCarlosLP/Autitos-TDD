@@ -72,4 +72,8 @@ describe("Comandos de movimiento del Auto", () => {
         const auto = new Auto();
         expect(auto.ejecutar("II")).toEqual("0,0S");
     });
+    it("Se ingresa el comando III para girar a la izquierda", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("III")).toEqual("0,0E");
+    });
  });

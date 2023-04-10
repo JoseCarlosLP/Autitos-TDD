@@ -54,7 +54,8 @@ class Auto
     rotarIzquierda()
     {
         if(this.orientacionActual=="N")  this.orientacionActual="O";
-        else this.orientacionActual="S";
+        else if(this.orientacionActual=="O") this.orientacionActual="S";
+        else this.orientacionActual="E";
     }
 }
 export default Auto;
