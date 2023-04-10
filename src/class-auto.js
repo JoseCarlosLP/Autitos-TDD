@@ -1,3 +1,6 @@
+const limiteY = 10;
+const limiteX = 10;
+
 class Auto
 {
     constructor()
@@ -28,27 +31,45 @@ class Auto
         }
     }
 
+    verificarLimites()
+    {
+        if(this.posicionActualX==limiteX)
+        {
+            this.posicionActualX--;
+        }
+        if(this.posicionActualX==-1)
+        {
+            this.posicionActualX++;
+        }
+        if(this.posicionActualY==limiteY)
+        {
+            this.posicionActualY--;
+        }
+        if(this.posicionActualY==-1)
+        {
+            this.posicionActualY++;
+        }
+    }
+
     avanzar()
     {
         if(this.orientacionActual=="N")
         {
-            if(this.posicionActualY<9)
                 this.posicionActualY++;
         }
         else if(this.orientacionActual=="E")
         {
-            this.posicionActualX++;
+                this.posicionActualX++;
         }
         else if(this.orientacionActual=="S")
         {
-            if(this.posicionActualY!=0)
                 this.posicionActualY--;
         }
         else if(this.orientacionActual=="O")
         {
-            if(this.posicionActualX!=0)
                 this.posicionActualX--;
         }
+        this.verificarLimites();
     }
 
     rotarDerecha()

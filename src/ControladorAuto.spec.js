@@ -55,4 +55,14 @@ describe("Comandos de movimiento del Auto", () => {
         const auto3 = new Auto();
         expect(auto3.ejecutar("DDDDA")).toEqual("0,1N");
     });
+    it("Se ingresa el comando D y A varias veces", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("DAAAAAAAAAAA")).toEqual("9,0E");
+        const auto2 = new Auto();
+        expect(auto2.ejecutar("DDAAAAAAAAAA")).toEqual("0,0S");
+        const auto3 = new Auto();
+        expect(auto3.ejecutar("DDDAAAAAAAAAA")).toEqual("0,0O");
+        const auto4 = new Auto();
+        expect(auto4.ejecutar("AAADAAAD")).toEqual("3,3S");
+    });
  });
