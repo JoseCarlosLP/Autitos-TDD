@@ -36,6 +36,10 @@ class Auto
         {
             this.orientacionActual="S";
         }
+        else if(this.orientacionActual=="S")
+        {
+            this.orientacionActual="O";
+        }
     }
 }
 

@@ -27,8 +27,12 @@ describe("Comandos de movimiento del Auto", () => {
         const auto = new Auto();
         expect(auto.ejecutar("D")).toEqual("0,0E");
     });
-    it("Se ingresa el comando D para girar a la derecha", () => {
+    it("Se ingresa el comando DD para girar a la derecha", () => {
         const auto = new Auto();
         expect(auto.ejecutar("DD")).toEqual("0,0S");
+    });
+    it("Se ingresa el comando DDD para girar a la derecha", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("DDD")).toEqual("0,0O");
     });
  });
