@@ -1,4 +1,4 @@
-import { ejecutar } from "./ControladorAuto";
+import { ejecutar } from "./class-auto";
 
 export function mostrarPosiciones(cadenaComando)
 {
