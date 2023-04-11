@@ -94,4 +94,10 @@ describe("Comandos de movimiento del Auto", () => {
         const auto2 = new Auto();
         expect(auto2.ejecutar("4,3/DAAIA")).toEqual("2,1N");
     });
+    it("Se ingresa el limite del grid, la posicion inicial junto a la orientacion y la cadena de comandos", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("5,5/1,1N/AADAAI")).toEqual("3,3N");
+        const auto2 = new Auto();
+        expect(auto2.ejecutar("20,20/10,10N/AADAAAI")).toEqual("13,12N");
+    });
  });

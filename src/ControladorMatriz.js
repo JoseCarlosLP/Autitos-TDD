@@ -1,4 +1,4 @@
-function identificadorDeLimites(cadenaComando){
+function obtenerLimites(cadenaComando){
     let limites = [];
     if(cadenaComando.includes("/"))
     {  
@@ -11,4 +11,4 @@ function identificadorDeLimites(cadenaComando){
 
     return limites;
 }
-export default identificadorDeLimites;
+export default obtenerLimites;

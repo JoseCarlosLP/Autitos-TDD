@@ -1,4 +1,4 @@
-import identificadorDeLimites from "./ControladorMatriz";
+import obtenerLimites from "./ControladorMatriz";
 
 class Auto
 {
@@ -6,8 +6,6 @@ class Auto
     {
         this.posicionInicialX = 0;
         this.posicionInicialY = 0;
-        this.posicionActualX = this.posicionInicialX;
-        this.posicionActualY = this.posicionInicialY;
         this.orientacionInicial = "N";
         this.orientacionActual = this.orientacionInicial;
     }
@@ -18,18 +16,55 @@ class Auto
         this.limiteY = limites[1];
     }
 
-    eliminarLimitesDeCadena(cadenaComando)
+    eliminarParametrosDe(cadenaComando)
     {
         let posicionFinDeLimites=cadenaComando.indexOf("/");
-        cadenaComando=cadenaComando.substring(posicionFinDeLimites,cadenaComando.lenght);
+        cadenaComando=cadenaComando.substring(posicionFinDeLimites+1,cadenaComando.length);
         return cadenaComando;
     }
 
+    obtenerPosicionInicial(cadenaComando)
+    {
+        let datosIniciales = [];
+        if(cadenaComando.includes("/"))
+        {  
+            let limiteParametroPosicionInicial=cadenaComando.indexOf("/");
+            let cadenaPosiciones=cadenaComando.substring(0,limiteParametroPosicionInicial); //"5,5N"
+
+            datosIniciales = cadenaPosiciones.split(","); //[5,5N]
+
+            let posicionYyOrientacion = datosIniciales[datosIniciales.length - 1]; //5N
+
+            let orientacionInicial = posicionYyOrientacion[posicionYyOrientacion.length -1]; //N
+            let posicionYInicial = posicionYyOrientacion.slice(0, posicionYyOrientacion.length - 1); //5
+
+            datosIniciales.pop();
+            datosIniciales.push(posicionYInicial);
+            datosIniciales.push(orientacionInicial);
+        }
+        else
+        {
+            datosIniciales = [0,0,"N"];
+        }
+        return datosIniciales;
+    }
+
+    establecerPosicionesIniciales(datosIniciales)
+    {
+        this.posicionActualX = datosIniciales[0];
+        this.posicionActualY = datosIniciales[1];
+        this.orientacionActual = datosIniciales[2];
+    }
+    
     ejecutar(cadenaComando)
     {
-        let limites = identificadorDeLimites(cadenaComando);
+        let limites = obtenerLimites(cadenaComando);
         this.establecerLimites(limites);
-        cadenaComando = this.eliminarLimitesDeCadena(cadenaComando);
+        cadenaComando = this.eliminarParametrosDe(cadenaComando);
+
+        let datosIniciales = this.obtenerPosicionInicial(cadenaComando);
+        this.establecerPosicionesIniciales(datosIniciales);
+        cadenaComando = this.eliminarParametrosDe(cadenaComando);
 
         this.moverAuto(cadenaComando);
         return this.posicionActualX+","+this.posicionActualY+this.orientacionActual;
@@ -45,6 +80,7 @@ class Auto
 
     controlarPosicionDentroDeLaMatriz()
     {
+        
         if(this.posicionActualX==this.limiteX) this.posicionActualX--;
         if(this.posicionActualX==-1) this.posicionActualX++;        
         if(this.posicionActualY==this.limiteY) this.posicionActualY--;
