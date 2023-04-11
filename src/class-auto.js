@@ -56,6 +56,7 @@ class Auto
         this.orientacionActual = datosIniciales[2];
     }
     
+
     ejecutar(cadenaComando)
     {
         let limites = obtenerLimites(cadenaComando);

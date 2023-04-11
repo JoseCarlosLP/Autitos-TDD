@@ -4,7 +4,11 @@ export function mostrarPosiciones(cadenaComando)
 {
     const auto = new Auto();
     let div = document.querySelector("#posiciones");
-    div.innerHTML="Posicion Inicial = "+ auto.ejecutar("") + "<br> " + 
+
+    cadenaComandoSinLimites = auto.eliminarParametrosDe(cadenaComando);
+    let datosIniciales = auto.obtenerPosicionInicial(cadenaComandoSinLimites);
+    
+    div.innerHTML="Posicion Inicial = "+ datosIniciales[0]+","+datosIniciales[1]+datosIniciales[2] + "<br> " + 
     "Comandos: "+ cadenaComando + "<br> " + 
     "Posicion Final = "+ auto.ejecutar(cadenaComando);
 }
