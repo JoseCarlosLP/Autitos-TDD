@@ -12,18 +12,24 @@ class Auto
         this.orientacionActual = this.orientacionInicial;
     }
 
-    establecerLimites(limites,cadenaComando)
+    establecerLimites(limites)
     {
         this.limiteX = limites[0];
         this.limiteY = limites[1];
-        let comandos = cadenaComando.split("/");
-        return comandos[comandos.length-1];
     }
 
-    ejecutar(cadenaComando){
+    eliminarLimitesDeCadena(cadenaComando)
+    {
+        let posicionFinDeLimites=cadenaComando.indexOf("/");
+        cadenaComando=cadenaComando.substring(posicionFinDeLimites,cadenaComando.lenght);
+        return cadenaComando;
+    }
 
+    ejecutar(cadenaComando)
+    {
         let limites = identificadorDeLimites(cadenaComando);
-        cadenaComando = this.establecerLimites(limites,cadenaComando);
+        this.establecerLimites(limites);
+        cadenaComando = this.eliminarLimitesDeCadena(cadenaComando);
 
         this.moverAuto(cadenaComando);
         return this.posicionActualX+","+this.posicionActualY+this.orientacionActual;

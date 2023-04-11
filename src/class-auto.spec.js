@@ -91,5 +91,7 @@ describe("Comandos de movimiento del Auto", () => {
     it("Se ingresa el limite del grid y la cadena de comandos", () => {
         const auto = new Auto();
         expect(auto.ejecutar("2,3/AADAA")).toEqual("1,2E");
+        const auto2 = new Auto();
+        expect(auto2.ejecutar("4,3/DAAIA")).toEqual("2,1N");
     });
  });

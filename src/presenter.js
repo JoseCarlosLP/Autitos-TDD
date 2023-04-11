@@ -7,6 +7,5 @@ const form = document.querySelector("#form_ejecutar");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
   mostrarPosiciones(comandos.value)
 });
