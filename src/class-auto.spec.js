@@ -130,6 +130,10 @@ describe("Comandos de movimiento del Auto", () => {
         const auto2 = new Auto();
         expect(auto2.ejecutar("4,6/2,3N/DJJA")).toEqual("2,3E");
         const auto3 = new Auto();
-        expect(auto3.ejecutar("AAAAAAAAAAADAAAAAAAAAAAI")).toEqual("0,0N");
+        expect(auto3.ejecutar("4,4/4,4N/DAIA")).toEqual("0,0N");
+        const auto4 = new Auto();
+        expect(auto4.ejecutar("5,5/JDAIJAJ")).toEqual("1,1N");
+        const auto5 = new Auto();
+        expect(auto5.ejecutar("1,1/ADAIAIADJI")).toEqual("0,0O");
     });
  });
