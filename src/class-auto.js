@@ -96,7 +96,7 @@ class Auto
             if(cadenaComando[comando]=="D") this.rotarDerecha();
             else if(cadenaComando[comando]=="I") this.rotarIzquierda();
             else if(cadenaComando[comando]=="A") this.avanzar();
-            else if(cadenaComando=="J") {this.avanzar(); this.avanzar();}
+            else if(cadenaComando[comando]=="J") {this.avanzar(); this.avanzar();}
         }
     }
 

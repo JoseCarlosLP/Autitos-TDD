@@ -86,7 +86,7 @@ describe("Comandos de movimiento del Auto", () => {
     });
     it("Se ingresan comandos invalidos junto a comandos existentes para verificar que no sean procesados", () => {
         const auto = new Auto();
-        expect(auto.ejecutar("GOJRGAAGND")).toEqual("0,2E");
+        expect(auto.ejecutar("GOKRGAAGND")).toEqual("0,2E");
     });
     it("Se ingresa el limite del grid y la cadena de comandos", () => {
         const auto = new Auto();
@@ -111,5 +111,9 @@ describe("Comandos de movimiento del Auto", () => {
     it("Se ingresa el comando J para avanzar dos posiciones a la vez", () => {
         const auto = new Auto();
         expect(auto.ejecutar("J")).toEqual("0,2N");
+    });
+    it("Se ingresa el comando J junto a otros comandos", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("AADJIJJD")).toEqual("2,6E");
     });
  });
