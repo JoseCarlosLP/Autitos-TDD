@@ -96,11 +96,7 @@ class Auto
             if(cadenaComando[comando]=="D") this.rotarDerecha();
             else if(cadenaComando[comando]=="I") this.rotarIzquierda();
             else if(cadenaComando[comando]=="A") this.avanzar();
-            else if(cadenaComando[comando]=="J") {
-                if(this.orientacionActual=="N") this.posicionActualY+=2;
-                if(this.orientacionActual=="E") this.posicionActualX+=2;
-                if(this.orientacionActual=="O") this.posicionActualX-=2;
-            }
+            else if(cadenaComando[comando]=="J") { this.avanzar(); this.avanzar();}
         }
     }
 
