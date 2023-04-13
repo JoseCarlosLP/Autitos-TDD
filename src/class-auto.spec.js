@@ -112,4 +112,8 @@ describe("Comandos de movimiento del Auto", () => {
         const auto = new Auto();
         expect(auto.ejecutar("J")).toEqual("0,2N");
     });
+    it("Se ingresa el comando D y J para saltar una vez mirando el este", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("DJ")).toEqual("2,0E");
+    });
  });
