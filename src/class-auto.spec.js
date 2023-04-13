@@ -120,4 +120,8 @@ describe("Comandos de movimiento del Auto", () => {
         const auto = new Auto();
         expect(auto.ejecutar("3,3N/IJ")).toEqual("1,3O");
     });
+    it("Se ingresa un comando combinando los 4 movimientos para verificar la correcta funcionalidad en el escenario mas complejo posible", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("AADJJIJDDJA")).toEqual("4,1S");
+    });
  });
