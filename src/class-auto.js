@@ -1,5 +1,8 @@
 import obtenerLimites from "./ControladorMatriz";
 
+const limiteXDefecto=10;
+const limiteYDefecto=10;
+
 class Auto
 {
     constructor()
@@ -8,6 +11,12 @@ class Auto
         this.posicionInicialY = 0;
         this.orientacionInicial = "N";
         this.orientacionActual = this.orientacionInicial;
+
+        this.posicionActualX =  this.posicionInicialX;
+        this.posicionActualY =  this.posicionInicialY;
+
+        this.limiteX = limiteXDefecto;
+        this.limiteY = limiteYDefecto;
     }
 
     establecerLimites(limites)
@@ -26,8 +35,8 @@ class Auto
     obtenerPosicionInicial(cadenaComando)
     {
         let datosIniciales = [];
-        if(cadenaComando.includes("/"))
-        {  
+        // if(cadenaComando.includes("/"))
+        // {  
             let limiteParametroPosicionInicial=cadenaComando.indexOf("/");
             let cadenaPosiciones=cadenaComando.substring(0,limiteParametroPosicionInicial); //"5,5N"
 
@@ -41,11 +50,11 @@ class Auto
             datosIniciales.pop();
             datosIniciales.push(posicionYInicial);
             datosIniciales.push(orientacionInicial);
-        }
-        else
-        {
-            datosIniciales = [0,0,"N"];
-        }
+        // }
+        // else
+        // {
+        //     datosIniciales = [0,0,"N"];
+        // }
         return datosIniciales;
     }
 
@@ -56,17 +65,32 @@ class Auto
         this.orientacionActual = datosIniciales[2];
     }
     
+    verificarExistenciaDeCaracteres(cadenaParametros){
+        return cadenaParametros.includes('N') || cadenaParametros.includes('S') || cadenaParametros.includes('E') || cadenaParametros.includes('O');
+    }
+
+    esPosicionInicial(cadenaComando){
+        let esPosicionesIniciales;
+        let posicionFinDeParametros=cadenaComando.indexOf("/");
+        let cadenaParametros=cadenaComando.substring(0,posicionFinDeParametros);
+        if(this.verificarExistenciaDeCaracteres(cadenaParametros))
+            esPosicionesIniciales=true;
+        else esPosicionesIniciales=false;
+        return esPosicionesIniciales;
+    }
 
     ejecutar(cadenaComando)
     {
-        let limites = obtenerLimites(cadenaComando);
-        this.establecerLimites(limites);
-        cadenaComando = this.eliminarParametrosDe(cadenaComando);
-
-        let datosIniciales = this.obtenerPosicionInicial(cadenaComando);
-        this.establecerPosicionesIniciales(datosIniciales);
-        cadenaComando = this.eliminarParametrosDe(cadenaComando);
-
+        if(cadenaComando.indexOf("/")!=-1){
+            if(!this.esPosicionInicial(cadenaComando)){
+                let limites = obtenerLimites(cadenaComando);
+                this.establecerLimites(limites);
+                cadenaComando = this.eliminarParametrosDe(cadenaComando);}
+            if(this.esPosicionInicial(cadenaComando)){
+                let datosIniciales = this.obtenerPosicionInicial(cadenaComando);
+                this.establecerPosicionesIniciales(datosIniciales);
+                cadenaComando = this.eliminarParametrosDe(cadenaComando);}
+        }
         this.moverAuto(cadenaComando);
         return this.posicionActualX+","+this.posicionActualY+this.orientacionActual;
     }

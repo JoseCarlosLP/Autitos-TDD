@@ -102,4 +102,10 @@ describe("Comandos de movimiento del Auto", () => {
         const auto2 = new Auto();
         expect(auto2.ejecutar("20,20/10,10N/AADAAAI")).toEqual("13,12N");
     });
+    it("Se ingresa la posicion inicial junto a la orientacion y la cadena de comandos", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("3,3E/AADAAI")).toEqual("5,1E");
+        const auto2 = new Auto();
+        expect(auto2.ejecutar("9,9S/AAAADAAI")).toEqual("7,5S");
+    });
  });
