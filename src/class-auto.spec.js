@@ -108,4 +108,8 @@ describe("Comandos de movimiento del Auto", () => {
         const auto2 = new Auto();
         expect(auto2.ejecutar("9,9S/AAAADAAI")).toEqual("7,5S");
     });
+    it("Se ingresa el comando J para avanzar dos posiciones a la vez", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("J")).toEqual("0,2N");
+    });
  });
