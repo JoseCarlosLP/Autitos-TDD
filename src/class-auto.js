@@ -99,6 +99,7 @@ class Auto
             else if(cadenaComando[comando]=="J") {
                 if(this.orientacionActual=="N") this.posicionActualY+=2;
                 if(this.orientacionActual=="E") this.posicionActualX+=2;
+                if(this.orientacionActual=="O") this.posicionActualX-=2;
             }
         }
     }

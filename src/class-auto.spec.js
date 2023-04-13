@@ -116,4 +116,8 @@ describe("Comandos de movimiento del Auto", () => {
         const auto = new Auto();
         expect(auto.ejecutar("DJ")).toEqual("2,0E");
     });
+    it("Se ingresa el comando D y I para saltar una vez mirando el este desde otra posicion incial para poder saltar y no chocar el limite", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("3,3N/IJ")).toEqual("1,3O");
+    });
  });
