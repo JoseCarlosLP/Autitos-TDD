@@ -50,7 +50,7 @@ describe("Comandos de movimiento del Auto", () => {
         const auto = new Auto();
         expect(auto.ejecutar("DDA")).toEqual("0,10S");
         const auto2 = new Auto();
-        expect(auto2.ejecutar("DDDA")).toEqual("0,0O");
+        expect(auto2.ejecutar("DDDA")).toEqual("10,0O");
         const auto3 = new Auto();
         expect(auto3.ejecutar("DDDDA")).toEqual("0,1N");
     });
@@ -60,7 +60,7 @@ describe("Comandos de movimiento del Auto", () => {
         const auto2 = new Auto();
         expect(auto2.ejecutar("DDAAAAAAAAAA")).toEqual("0,1S");
         const auto3 = new Auto();
-        expect(auto3.ejecutar("DDDAAAAAAAAAA")).toEqual("0,0O");
+        expect(auto3.ejecutar("DDDAAAAAAAAAA")).toEqual("1,0O");
         const auto4 = new Auto();
         expect(auto4.ejecutar("AAADAAAD")).toEqual("3,3S");
     });
@@ -135,5 +135,9 @@ describe("Comandos de movimiento del Auto", () => {
     it("Se ingresa el comando D 2 veces y A el auto deberia dar la vuelta la matriz llegando al extremo superior de la matriz", () => {
         const auto = new Auto();
         expect(auto.ejecutar("DDA")).toEqual("0,10S");
+    });
+    it("Se ingresa el comando D 2 veces y A el auto deberia dar la vuelta la matriz llegando al lateral derecho de la matriz", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("IA")).toEqual("10,0O");
     });
  });
