@@ -22,7 +22,7 @@ describe("Comandos de movimiento del Auto", () => {
         const auto2 = new Auto();
         expect(auto2.ejecutar("AAAAAAA")).toEqual("0,7N");
         const auto3 = new Auto();
-        expect(auto3.ejecutar("AAAAAAAAAA")).toEqual("0,9N");
+        expect(auto3.ejecutar("AAAAAAAAAA")).toEqual("0,10N");
     });
     it("Se ingresa el comando D para girar a la derecha", () => {
         const auto = new Auto();
@@ -56,7 +56,7 @@ describe("Comandos de movimiento del Auto", () => {
     });
     it("Se ingresa el comando D y A varias veces", () => {
         const auto = new Auto();
-        expect(auto.ejecutar("DAAAAAAAAAAA")).toEqual("9,0E");
+        expect(auto.ejecutar("DAAAAAAAAAAA")).toEqual("10,0E");
         const auto2 = new Auto();
         expect(auto2.ejecutar("DDAAAAAAAAAA")).toEqual("0,0S");
         const auto3 = new Auto();
@@ -90,9 +90,11 @@ describe("Comandos de movimiento del Auto", () => {
     });
     it("Se ingresa el limite del grid y la cadena de comandos", () => {
         const auto = new Auto();
-        expect(auto.ejecutar("2,3/AADAA")).toEqual("1,2E");
+        expect(auto.ejecutar("2,3/AADAA")).toEqual("2,2E");
         const auto2 = new Auto();
         expect(auto2.ejecutar("4,3/DAAIA")).toEqual("2,1N");
+        const auto3 = new Auto();
+        expect(auto3.ejecutar("5,5/AAAAAADAA")).toEqual("2,5E");
     });
     it("Se ingresa el limite del grid, la posicion inicial junto a la orientacion y la cadena de comandos", () => {
         const auto = new Auto();
