@@ -104,7 +104,7 @@ class Auto
     {
         if(this.posicionActualX>this.limiteX) this.posicionActualX--;
         if(this.posicionActualX==-1) this.posicionActualX++;        
-        if(this.posicionActualY>this.limiteY) this.posicionActualY--;
+        if(this.posicionActualY>this.limiteY) this.posicionActualY=0;
         if(this.posicionActualY==-1) this.posicionActualY++;
     }
 
