@@ -35,8 +35,6 @@ class Auto
     obtenerPosicionInicial(cadenaComando)
     {
         let datosIniciales = [];
-        // if(cadenaComando.includes("/"))
-        // {  
             let limiteParametroPosicionInicial=cadenaComando.indexOf("/");
             let cadenaPosiciones=cadenaComando.substring(0,limiteParametroPosicionInicial); //"5,5N"
 
@@ -50,11 +48,6 @@ class Auto
             datosIniciales.pop();
             datosIniciales.push(posicionYInicial);
             datosIniciales.push(orientacionInicial);
-        // }
-        // else
-        // {
-        //     datosIniciales = [0,0,"N"];
-        // }
         return datosIniciales;
     }
 
@@ -63,6 +56,9 @@ class Auto
         this.posicionActualX = datosIniciales[0];
         this.posicionActualY = datosIniciales[1];
         this.orientacionActual = datosIniciales[2];
+
+        this.posicionInicialX = this.posicionActualX;
+        this.posicionInicialY = this.posicionActualY;
     }
     
     verificarExistenciaDeCaracteres(cadenaParametros){
