@@ -48,9 +48,9 @@ describe("Comandos de movimiento del Auto", () => {
     });
     it("Se ingresa el comando D varias veces y A una sola vez", () => {
         const auto = new Auto();
-        expect(auto.ejecutar("DDA")).toEqual("0,0S");
+        expect(auto.ejecutar("DDA")).toEqual("0,10S");
         const auto2 = new Auto();
-        expect(auto2.ejecutar("DDDA")).toEqual("0,0O");
+        expect(auto2.ejecutar("DDDA")).toEqual("10,0O");
         const auto3 = new Auto();
         expect(auto3.ejecutar("DDDDA")).toEqual("0,1N");
     });
@@ -58,9 +58,9 @@ describe("Comandos de movimiento del Auto", () => {
         const auto = new Auto();
         expect(auto.ejecutar("DAAAAAAAAAAA")).toEqual("0,0E");
         const auto2 = new Auto();
-        expect(auto2.ejecutar("DDAAAAAAAAAA")).toEqual("0,0S");
+        expect(auto2.ejecutar("DDAAAAAAAAAA")).toEqual("0,1S");
         const auto3 = new Auto();
-        expect(auto3.ejecutar("DDDAAAAAAAAAA")).toEqual("0,0O");
+        expect(auto3.ejecutar("DDDAAAAAAAAAA")).toEqual("1,0O");
         const auto4 = new Auto();
         expect(auto4.ejecutar("AAADAAAD")).toEqual("3,3S");
     });
@@ -123,5 +123,13 @@ describe("Comandos de movimiento del Auto", () => {
     it("Se ingresan los limites junto al comando avanzar para observar que continua avanzando en el eje X", () => {
         const auto = new Auto();
         expect(auto.ejecutar("2,2/DAAAI")).toEqual("0,0N");
+    });
+    it("Se ingresan los limites junto al comando avanzar para observar que continua avanzando sin importar el eje", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("3,3/DDAA")).toEqual("0,2S");
+        const auto2 = new Auto();
+        expect(auto2.ejecutar("4,6/2,3N/DJJA")).toEqual("2,3E");
+        const auto3 = new Auto();
+        expect(auto3.ejecutar("AAAAAAAAAAADAAAAAAAAAAAI")).toEqual("0,0N");
     });
  });

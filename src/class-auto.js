@@ -103,10 +103,10 @@ class Auto
     controlarPosicionDentroDeLaMatriz()
     {
         
-        if(this.posicionActualX>this.limiteX) this.posicionActualX-=this.posicionActualX;
-        if(this.posicionActualX==-1) this.posicionActualX++;        
-        if(this.posicionActualY>this.limiteY) this.posicionActualY-=this.posicionActualY;
-        if(this.posicionActualY==-1) this.posicionActualY++;
+        if(this.posicionActualX>this.limiteX) this.posicionActualX=0;
+        if(this.posicionActualX==-1) this.posicionActualX=this.limiteX;        
+        if(this.posicionActualY>this.limiteY) this.posicionActualY=0;
+        if(this.posicionActualY==-1) this.posicionActualY=this.limiteY;
     }
 
     avanzar()
