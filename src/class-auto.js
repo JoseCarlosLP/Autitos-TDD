@@ -96,12 +96,12 @@ class Auto
             if(cadenaComando[comando]=="D") this.rotarDerecha();
             else if(cadenaComando[comando]=="I") this.rotarIzquierda();
             else if(cadenaComando[comando]=="A") this.avanzar();
+            else if(cadenaComando[comando]=="J") this.posicionActualY=this.posicionActualY+2;
         }
     }
 
     controlarPosicionDentroDeLaMatriz()
     {
-        
         if(this.posicionActualX>this.limiteX) this.posicionActualX--;
         if(this.posicionActualX==-1) this.posicionActualX++;        
         if(this.posicionActualY>this.limiteY) this.posicionActualY--;

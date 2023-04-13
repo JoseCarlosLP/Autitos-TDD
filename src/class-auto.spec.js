@@ -86,7 +86,7 @@ describe("Comandos de movimiento del Auto", () => {
     });
     it("Se ingresan comandos invalidos junto a comandos existentes para verificar que no sean procesados", () => {
         const auto = new Auto();
-        expect(auto.ejecutar("GOJRGAAGND")).toEqual("0,2E");
+        expect(auto.ejecutar("GOQRGAAGND")).toEqual("0,2E");
     });
     it("Se ingresa el limite del grid y la cadena de comandos", () => {
         const auto = new Auto();
@@ -107,5 +107,9 @@ describe("Comandos de movimiento del Auto", () => {
         expect(auto.ejecutar("3,3E/AADAAI")).toEqual("5,1E");
         const auto2 = new Auto();
         expect(auto2.ejecutar("9,9S/AAAADAAI")).toEqual("7,5S");
+    });
+    it("Se ingresa el comando J para saltar una vez", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("J")).toEqual("0,2N");
     });
  });
