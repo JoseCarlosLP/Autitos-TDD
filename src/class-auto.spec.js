@@ -94,7 +94,7 @@ describe("Comandos de movimiento del Auto", () => {
         const auto2 = new Auto();
         expect(auto2.ejecutar("4,3/DAAIA")).toEqual("2,1N");
         const auto3 = new Auto();
-        expect(auto3.ejecutar("5,5/AAAAAADAA")).toEqual("2,5E");
+        expect(auto3.ejecutar("5,5/AAAAAADAA")).toEqual("2,0E");
     });
     it("Se ingresa el limite del grid, la posicion inicial junto a la orientacion y la cadena de comandos", () => {
         const auto = new Auto();
@@ -115,5 +115,9 @@ describe("Comandos de movimiento del Auto", () => {
     it("Se ingresa el comando J junto a otros comandos", () => {
         const auto = new Auto();
         expect(auto.ejecutar("AADJIJJD")).toEqual("2,6E");
+    });
+    it("Se ingresan los limites junto al comando avanzar para observar que continua avanzando en el eje Y", () => {
+        const auto = new Auto();
+        expect(auto.ejecutar("2,2/AAA")).toEqual("0,0N");
     });
  });
